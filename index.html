@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function getComputerChoice(){
+            let res=Math.floor(Math.random()*10);
+            if(res<=3)
+            return "rock";
+        else if(res<=6)
+        return "paper";
+    else
+    return "scissor";
+        }
+        
+        function getHumanChoice(){
+            let user;
+
+            user=prompt("enter your choice");
+            return user;
+            
+
+        }
+
+    
+        let humanScore=0,computerScore=0;
+        function playRound(humanChoice,computerChoice){
+            humanChoice=getHumanChoice();
+            computerChoice=getComputerChoice();
+            console.log(computerChoice);
+            if((humanChoice=="rock"&&computerChoice=="scissor")||(humanChoice=="scissor"&&computerChoice=="paper")||(humanChoice=="paper"&&computerChoice=="rock")){
+                humanScore++;
+            
+            console.log("you win "+humanChoice+"beats"+computerChoice);
+                }
+        
+    else if(humanChoice===computerChoice)
+    console.log("its a tie");
+else{
+console.log("better luck next time!computer wins "+computerChoice+" beats "+humanChoice);
+computerScore++;
+}
+
+
+
+        }
+        playRound();
+        
+
+
+
+
+
+    
+
+
+            
+
+        
+
+    </script>
+</body>
+</html>
