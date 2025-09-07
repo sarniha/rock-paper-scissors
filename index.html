@@ -6,7 +6,8 @@
     <title>Document</title>
 </head>
 <body>
-    <script>
+    <div class="ref"></div>
+       <script>
         function getComputerChoice(){
             let res=Math.floor(Math.random()*10);
             if(res<=3)
@@ -14,41 +15,86 @@
         else if(res<=6)
         return "paper";
     else
-    return "scissor";
+    return "scissors";
+
         }
         
-        function getHumanChoice(){
+        /*function getHumanChoice(){
             let user;
 
-            user=prompt("enter your choice");
+            user=document.querySelector
+            user=user.toLocaleLowerCase();
             return user;
             
 
-        }
+        }*/
 
     
         let humanScore=0,computerScore=0;
+        const ref=document.querySelector(".ref");
+
+        const btn1=document.createElement("button");
+        const btn2=document.createElement("button");
+        
+        const btn3=document.createElement("button");
+        const p=document.createElement("p");
+        const newd=document.createElement("p");
+        
+        
+
+        btn1.textContent="rock";
+        btn2.textContent="paper";
+        btn3.textContent="scissors";
+                ref.appendChild(btn1);
+        ref.appendChild(btn2);
+        ref.appendChild(btn3);
+        ref.appendChild(newd);
+
+        
+        ref.appendChild(p);
+
+        
+
+        
         function playRound(humanChoice,computerChoice){
-            humanChoice=getHumanChoice();
+            
+            humanChoice=humanChoice.toLowerCase();
             computerChoice=getComputerChoice();
             console.log(computerChoice);
-            if((humanChoice=="rock"&&computerChoice=="scissor")||(humanChoice=="scissor"&&computerChoice=="paper")||(humanChoice=="paper"&&computerChoice=="rock")){
+            if((humanChoice=="rock"&&computerChoice=="scissors")||(humanChoice=="scissors"&&computerChoice=="paper")||(humanChoice=="paper"&&computerChoice=="rock")){
                 humanScore++;
             
-            console.log("you win "+humanChoice+"beats"+computerChoice);
+            p.textContent=`you win ${humanChoice} beats ${computerChoice}`
                 }
         
     else if(humanChoice===computerChoice)
-    console.log("its a tie");
+    p.textContent="its a tie";
 else{
-console.log("better luck next time!computer wins "+computerChoice+" beats "+humanChoice);
+p.textContent=`better luck next time!computer wins ${computerChoice}  beats ${humanChoice}`;
 computerScore++;
+
 }
+newd.textContent=`humanscore:${humanScore}
+        computerscore:${computerScore}`;
+
+
+
 
 
 
         }
-        playRound();
+        
+        
+        
+        
+        btn1.addEventListener('click',()=>playRound("rock"));
+        btn2.addEventListener('click',()=>playRound("paper"));
+        btn3.addEventListener('click',()=>playRound("Scissors"));
+        
+        
+
+
+
         
 
 
